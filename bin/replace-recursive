@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# This script replace recursive term a with b for a given directory.
+#
+# Example usage:
+#     $ replace-recursive walzer samba ../dancing_instructions
+set -e
+
+find $3 -name '*.*' -exec sed -i '' s/$1/$2/g {} \;
