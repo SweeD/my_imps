@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+main() {
+  iterate_through_branches
+}
+
+iterate_through_branches() {
+  branches=`git branch | grep -v '*'`
+
+  for branch in $branches; do
+    delete_if_accepted $branch
+  done
+}
+
+delete_if_accepted() {
+  branch=$1
+  echo ""
+  read -p "Delete $branch? (y|n): " decision
+
+  if [ "$decision" == "y" ]; then
+    git branch -D $branch
+  fi
+}
+
+main
