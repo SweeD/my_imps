@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+echo "Stopping Dropbox"
+
+osascript <<EOD
+  tell application "Dropbox"
+    quit
+  end tell
+EOD
+
+echo "...Stopped"
+
+echo "Stopping ownCloud"
+
+osascript <<EOD
+  tell application "ownCloud"
+    quit
+  end tell
+EOD
+
+echo "...Stopped"
+
+echo "Stopping Twitter"
+
+osascript <<EOD
+  tell application "Twitter"
+    quit
+  end tell
+EOD
+
+echo "...Stopped"
+
+
+echo "Battery mode active"

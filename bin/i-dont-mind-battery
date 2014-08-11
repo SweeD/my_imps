@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+echo "Starting Dropbox"
+
+osascript <<EOD
+  tell application "Dropbox"
+    activate
+  end tell
+EOD
+
+echo "...Started"
+
+echo "Starting ownCloud"
+
+osascript <<EOD
+  tell application "ownCloud"
+    activate
+  end tell
+EOD
+
+echo "...Started"
+
+echo "Starting Twitter"
+
+osascript <<EOD
+  tell application "Twitter"
+    activate
+  end tell
+EOD
+
+echo "...Started"
+
+
+echo "Battery mode active"
