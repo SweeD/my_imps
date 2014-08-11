@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+branch=$1
+log_prefix='\n\n\e[0;32m';
+log_sufix='\e[0m\n';
+
+main() {
+  printf "${log_prefix}Checking out $branch${log_sufix}"
+  git checkout $branch
+
+  printf "${log_prefix}Rebasing on master${log_sufix}"
+  git rebase master
+
+  printf "${log_prefix}Checking out master${log_sufix}"
+  git checkout master
+
+  printf "${log_prefix}Merging $branch into master${log_sufix}"
+  git merge $branch
+}
+
+main
