@@ -31,5 +31,15 @@ EOD
 
 echo "...Started"
 
+echo "Starting Evernote"
+
+osascript <<EOD
+  tell application "Evernote"
+    activate
+  end tell
+EOD
+
+echo "...Started"
+
 
 echo "Battery mode active"

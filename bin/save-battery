@@ -31,5 +31,15 @@ EOD
 
 echo "...Stopped"
 
+echo "Stopping Evernote"
+
+osascript <<EOD
+  tell application "Evernote"
+    quit
+  end tell
+EOD
+
+echo "...Stopped"
+
 
 echo "Battery mode active"
