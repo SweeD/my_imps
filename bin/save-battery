@@ -11,16 +11,6 @@ EOD
 
 echo "...Stopped"
 
-echo "Stopping ownCloud"
-
-osascript <<EOD
-  tell application "ownCloud"
-    quit
-  end tell
-EOD
-
-echo "...Stopped"
-
 echo "Stopping Twitter"
 
 osascript <<EOD

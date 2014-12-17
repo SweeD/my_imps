@@ -11,16 +11,6 @@ EOD
 
 echo "...Started"
 
-echo "Starting ownCloud"
-
-osascript <<EOD
-  tell application "ownCloud"
-    activate
-  end tell
-EOD
-
-echo "...Started"
-
 echo "Starting Twitter"
 
 osascript <<EOD
