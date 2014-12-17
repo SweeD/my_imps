@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+
+from_email=$1
+to_email=$2
+
+usage() {
+    echo "usage: `basename $0` email_to_replace email_to_replace_with"
+}
+
+enforce_usage() {
+  if [ -z "$to_email" ]; then
+      usage
+      exit $E_BADARGS
+  fi
+}
+
+replace() {
+  git filter-branch --env-filter '
+  if test "$GIT_AUTHOR_EMAIL" = "schwed@avarteq.de"
+  then
+    GIT_AUTHOR_EMAIL=ma.schwed@googlemail.com
+    export GIT_AUTHOR_EMAIL
+  fi
+  if test "$GIT_COMMITTER_EMAIL" = "schwed@avarteq.de"
+  then
+    GIT_COMMITTER_EMAIL=ma.schwed@googlemail.com
+    export GIT_COMMITTER_EMAIL
+  fi
+  ' -- --all
+}
+
+main() {
+  enforce_usage
+  replace
+}
+
+main
