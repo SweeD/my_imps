@@ -7,7 +7,7 @@ main() {
 }
 
 open_modified_files() {
-  files=`git status | grep modified: | cut -d " " -f 4 | xargs`
+  files=`git diff --name-only | xargs`
   vim -O $files
 }
 
