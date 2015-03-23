@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+main() {
+  open_modified_files
+}
+
+open_modified_files() {
+  files=`git status | grep modified: | cut -d " " -f 4 | xargs`
+  vim -O $files
+}
+
+main
