@@ -6,4 +6,28 @@
 #     $ replace-recursive walzer samba ../dancing_instructions
 set -e
 
-find $3 -name '*.*' -exec sed -i '' s/$1/$2/g {} \;
+from_string=$1
+to_string=$2
+dir_regexp=$3
+
+usage() {
+    echo "usage: `basename $0` string_to_replace string_to_replace_with directory"
+}
+
+enforce_usage() {
+  if [ -z "$dir_regexp" ]; then
+      usage
+      exit $E_BADARGS
+  fi
+}
+
+replace() {
+  find $dir_regexp -name '*.*' -exec sed -i '' s/$from_string/$to_string/g {} \;
+}
+
+main() {
+  enforce_usage
+  replace
+}
+
+main
