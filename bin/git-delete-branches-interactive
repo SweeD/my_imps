@@ -2,6 +2,14 @@
 
 set -e
 
+while getopts ":r" opt; do
+  case $opt in
+    r)
+      delete_remotes=true
+      ;;
+  esac
+done
+
 main() {
   iterate_through_branches
 }
@@ -21,6 +29,10 @@ delete_if_accepted() {
 
   if [ "$decision" == "y" ]; then
     git branch -D $branch
+
+    if [ "$delete_remotes" == true ]; then
+      (git push origin :$branch)
+    fi
   fi
 }
 
