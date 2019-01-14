@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+source_container=$1
+destination_container=$2
+
+main() {
+  iterate_through_branches
+}
+
+iterate_through_branches() {
+  objects=`swift list $source_container`
+
+  for object in $objects; do
+    copy_to_destination $object
+  done
+}
+
+copy_to_destination() {
+  object=$1
+  echo "Copy $object over to $destination_container"
+  swift copy --destination /$destination_container $source_container $object
+}
+
+main
