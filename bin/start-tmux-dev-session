@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+main() {
+  tmux new -s CMDev -d
+  tmux new -s Misc -d
+  tmux new -s Servers -d
+  echo "Done"
+}
+
+main
