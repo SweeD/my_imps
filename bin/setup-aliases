@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+echo "Setup your git aliases..."
+git config --global alias.aa "add -U"
+git config --global alias.aa "add -A"
+git config --global alias.dc "diff --cache -"
+git config --global alias.dc "diff --cached -"
+git config --global alias.dc "diff --cached"
+git config --global alias.ci "commit"
+git config --global alias.co "checkout"
+git config --global alias.st "status"
+git config --global alias.pr "pull --rebase"
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cen(%cr) %C(bold blue)<%an>%Creset'"
+echo "done"
