@@ -4,6 +4,7 @@ set -e
 
 main() {
   tmux new -s Editor -d
+  tmux new -s AI -d
   tmux new -s Misc -d
   tmux new -s Servers -d
   echo "Done"
