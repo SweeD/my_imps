@@ -7,8 +7,8 @@ main() {
 }
 
 open_modified_files() {
-  files=`git diff --name-only | xargs`
-  vim -O $files
+  files=$(git diff --name-only | xargs)
+  nvim -O $files
 }
 
 main
